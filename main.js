@@ -32,3 +32,39 @@ function divide(num1, num2) {
 // z = multiply(3,2);
 // a = divide(0,1);
 // b = divide(4,2);
+
+// declare universal variables
+let number1 = ''
+let number2 = ''
+let operator = ''
+
+// define the main function for the calculator
+function operate(arg1, operation, arg2) {
+    argument1 = parseFloat(arg1)
+    argument2 = parseFloat(arg2)
+    perform = operation
+    answer = ''
+
+    switch(perform) {
+    case '+':
+        answer = (arg1 + arg2);
+        break;
+    case '-':
+        answer = (arg1 - arg2);
+        break;
+    case '*':
+        answer = (arg1 * arg2);
+        break;
+    case '/':
+        answer = (arg1 / arg2);
+        break;
+    }
+    return answer
+}
+
+// Test operate function - Working as intended
+// x = operate(3, '*', 3)
+// y = operate(2, '+', 5.5)
+// z = operate(100.1, '/', 2)
+// a = operate(5000.962, '-', 8000)
+// b = operate(199999, '-', 5)
