@@ -25,3 +25,10 @@ function divide(num1, num2) {
         return "Error, cannot divide by 0"
     }
 }
+
+// Function tests - all working
+// x = add(1,2);
+// y = subtract(2,1);
+// z = multiply(3,2);
+// a = divide(0,1);
+// b = divide(4,2);
