@@ -223,9 +223,19 @@ NINE.addEventListener("click", () => {
         });
 const ZERO = document.querySelector('#zero')
 ZERO.addEventListener("click", () => {
-    display = '0';
-    DISPLAY_VALUE.textContent = display;
-});
+    if (!operator) {
+        display = '0';
+        number1 += display
+        DISPLAY_VALUE.textContent = number1;
+         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
+             display = '0';
+             number2 += display;
+             DISPLAY_VALUE.textContent = number2; 
+         } else {
+            display = 'ERROR';
+            DISPLAY_VALUE.textContent = display;
+         }
+        });
 
 const ADD = document.querySelector('#add')
 ADD.addEventListener("click", () => {
