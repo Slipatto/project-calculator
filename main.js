@@ -37,6 +37,7 @@ function divide(num1, num2) {
 let number1 = ''
 let number2 = ''
 let operator = ''
+let calc = ''
 
 // define the main function for the calculator
 function operate(arg1, operation, arg2) {
@@ -79,9 +80,19 @@ let DISPLAY_VALUE = document.querySelector('#display-value')
 
 const ONE = document.querySelector('#one')
 ONE.addEventListener("click", () => {
+    if (!display) {
     display = '1';
     DISPLAY_VALUE.textContent = display;
-});
+    number1 = '1';
+     } else if (display === '+' || display === '-' || display === 'x' || display === '÷') {
+         number2 = '1';
+        // let calc = operate(number1, operator, number2);
+        DISPLAY_VALUE.textContent = number2; 
+     } else {
+        display = 'ERROR';
+        DISPLAY_VALUE.textContent = display;
+     }
+    });
 
 const TWO = document.querySelector('#two')
 TWO.addEventListener("click", () => {
@@ -141,24 +152,28 @@ const ADD = document.querySelector('#add')
 ADD.addEventListener("click", () => {
     display = '+';
     DISPLAY_VALUE.textContent = display;
+    operator = '+';
 });
 
 const SUBTRACT = document.querySelector('#subtract')
 SUBTRACT.addEventListener("click", () => {
     display = '-';
     DISPLAY_VALUE.textContent = display;
+    operator = '-';
 });
 
 const MULTIPLY = document.querySelector('#multiply')
 MULTIPLY.addEventListener("click", () => {
     display = 'x';
     DISPLAY_VALUE.textContent = display;
+    operator = 'x';
 });
 
 const DIVIDE = document.querySelector('#divide')
 DIVIDE.addEventListener("click", () => {
     display = '÷';
     DISPLAY_VALUE.textContent = display;
+    operator = '÷';
 });
 
 const DECIMAL = document.querySelector('#decimal')
@@ -175,6 +190,15 @@ CLEAR.addEventListener("click", () => {
 
 const EQUALS = document.querySelector('#equals')
 EQUALS.addEventListener("click", () => {
-    display = '';
-    DISPLAY_VALUE.textContent = display;
-});
+    if (!display) {
+        display = 'ERROR';
+        DISPLAY_VALUE.textContent = display;
+         } else if (display === '+' || display === '-' || display === 'x' || display === '÷') {
+            display = 'ERROR'
+            DISPLAY_VALUE.textContent = display
+         } else {
+            let calc = operate(number1, operator, number2);
+            display = calc;
+            DISPLAY_VALUE.textContent = calc;
+         }
+        });
