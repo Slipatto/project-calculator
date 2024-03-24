@@ -37,27 +37,27 @@ function divide(num1, num2) {
 let number1 = ''
 let number2 = ''
 let operator = ''
-let calc = ''
+let calc = 0
 
 // define the main function for the calculator
 function operate(arg1, operation, arg2) {
     argument1 = parseFloat(arg1)
     argument2 = parseFloat(arg2)
     perform = operation
-    answer = ''
+    answer = 0
 
     switch(perform) {
     case '+':
-        answer = (arg1 + arg2);
+        answer = (argument1 + argument2);
         break;
     case '-':
-        answer = (arg1 - arg2);
+        answer = (argument1 - argument2);
         break;
     case '*':
-        answer = (arg1 * arg2);
+        answer = (argument1 * argument2);
         break;
     case '/':
-        answer = (arg1 / arg2);
+        answer = (argument1 / argument2);
         break;
     }
     return answer
@@ -87,7 +87,8 @@ ONE.addEventListener("click", () => {
      } else if (display === '+' || display === '-' || display === 'x' || display === '÷') {
          number2 = '1';
         // let calc = operate(number1, operator, number2);
-        DISPLAY_VALUE.textContent = number2; 
+        DISPLAY_VALUE.textContent = number2;
+        display = number2; 
      } else {
         display = 'ERROR';
         DISPLAY_VALUE.textContent = display;
@@ -96,9 +97,20 @@ ONE.addEventListener("click", () => {
 
 const TWO = document.querySelector('#two')
 TWO.addEventListener("click", () => {
-    display = '2';
-    DISPLAY_VALUE.textContent = display;
-});
+    if (!display) {
+        display = '2';
+        DISPLAY_VALUE.textContent = display;
+        number1 = '2';
+         } else if (display === '+' || display === '-' || display === 'x' || display === '÷') {
+             number2 = '2';
+            // let calc = operate(number1, operator, number2);
+            DISPLAY_VALUE.textContent = number2;
+            display = number2; 
+         } else {
+            display = 'ERROR';
+            DISPLAY_VALUE.textContent = display;
+         }
+        });
 
 const THREE = document.querySelector('#three')
 THREE.addEventListener("click", () => {
@@ -186,6 +198,10 @@ const CLEAR = document.querySelector('#clear-button')
 CLEAR.addEventListener("click", () => {
     display = '';
     DISPLAY_VALUE.textContent = display;
+    number1 = '';
+    number2 = '';
+    calc = '';
+
 });
 
 const EQUALS = document.querySelector('#equals')
