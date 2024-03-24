@@ -107,7 +107,7 @@ p {
     margin-right: auto;
 }
 
-#keys {
+.keys {
     background-color:#ffffff;
     border: 1px #ffffff;
     border-radius: 25px;
@@ -117,7 +117,7 @@ p {
     font-size: 6ch;
 }
 
-#equals-key {
+.equals-key {
     background-color:#f48414;
     border: 1px #ffffff;
     border-radius: 25px;
