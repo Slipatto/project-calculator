@@ -26,13 +26,6 @@ function divide(num1, num2) {
     }
 }
 
-// Function tests - all working
-// x = add(1,2);
-// y = subtract(2,1);
-// z = multiply(3,2);
-// a = divide(0,1);
-// b = divide(4,2);
-
 // declare universal variables
 let number1 = ''
 let number2 = ''
@@ -63,12 +56,27 @@ function operate(arg1, operation, arg2) {
     return answer
 }
 
-// Test operate function - Working as intended
-// x = operate(3, '*', 3)
-// y = operate(2, '+', 5.5)
-// z = operate(100.1, '/', 2)
-// a = operate(5000.962, '-', 8000)
-// b = operate(199999, '-', 5)
+// Create numbered button function
+function numberKey (num) {if (!operator) {
+    display = num;
+    number1 += display
+    DISPLAY_VALUE.textContent = number1;
+    } else if (number1 != false && number2 != false && operator != false) {
+        let sum = operate(number1, operator, number2);
+        number1 = sum;
+        display = num;
+        number2 += display
+        DISPLAY_VALUE.textContent = number2;
+    } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
+         display = num;
+         number2 += display;
+         DISPLAY_VALUE.textContent = number2;
+    } else {
+        display = 'ERROR';
+        DISPLAY_VALUE.textContent = display;
+     }
+    
+}
 
 // Create display values
 // Create Variables to reference html elements
@@ -79,162 +87,73 @@ let DISPLAY_VALUE = document.querySelector('#display-value')
 // let displayThree = ''
 
 const ONE = document.querySelector('#one')
-ONE.addEventListener("click", () => {
-    if (!operator) {
-    display = '1';
-    number1 += display
-    DISPLAY_VALUE.textContent = number1;
-     } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-         display = '1';
-         number2 += display;
-         DISPLAY_VALUE.textContent = number2; 
-     } else {
-        display = 'ERROR';
-        DISPLAY_VALUE.textContent = display;
-     }
-    });
+ONE.addEventListener("click", () => { 
+    numberKey(1)
+});
+
 
 const TWO = document.querySelector('#two')
 TWO.addEventListener("click", () => {
-    if (!operator) {
-        display = '2';
-        number1 += display
-        DISPLAY_VALUE.textContent = number1;
-         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-             display = '2';
-             number2 += display;
-             DISPLAY_VALUE.textContent = number2; 
-         } else {
-            display = 'ERROR';
-            DISPLAY_VALUE.textContent = display;
-         }
+    numberKey(2)
         });
 
 const THREE = document.querySelector('#three')
 THREE.addEventListener("click", () => {
-    if (!operator) {
-        display = '3';
-        number1 += display
-        DISPLAY_VALUE.textContent = number1;
-         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-             display = '3';
-             number2 += display;
-             DISPLAY_VALUE.textContent = number2; 
-         } else {
-            display = 'ERROR';
-            DISPLAY_VALUE.textContent = display;
-         }
+    numberKey(3)
         });
 
 const FOUR = document.querySelector('#four')
 FOUR.addEventListener("click", () => {
-    if (!operator) {
-        display = '4';
-        number1 += display
-        DISPLAY_VALUE.textContent = number1;
-         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-             display = '4';
-             number2 += display;
-             DISPLAY_VALUE.textContent = number2; 
-         } else {
-            display = 'ERROR';
-            DISPLAY_VALUE.textContent = display;
-         }
+    numberKey(4)
         });
 
 const FIVE = document.querySelector('#five')
 FIVE.addEventListener("click", () => {
-    if (!operator) {
-        display = '5';
-        number1 += display
-        DISPLAY_VALUE.textContent = number1;
-         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-             display = '5';
-             number2 += display;
-             DISPLAY_VALUE.textContent = number2; 
-         } else {
-            display = 'ERROR';
-            DISPLAY_VALUE.textContent = display;
-         }
+    numberKey(5)
         });
 
 const SIX = document.querySelector('#six')
 SIX.addEventListener("click", () => {
-    if (!operator) {
-        display = '6';
-        number1 += display
-        DISPLAY_VALUE.textContent = number1;
-         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-             display = '6';
-             number2 += display;
-             DISPLAY_VALUE.textContent = number2; 
-         } else {
-            display = 'ERROR';
-            DISPLAY_VALUE.textContent = display;
-         }
+    numberKey(6)
         });
 
 const SEVEN = document.querySelector('#seven')
 SEVEN.addEventListener("click", () => {
-    if (!operator) {
-        display = '7';
-        number1 += display
-        DISPLAY_VALUE.textContent = number1;
-         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-             display = '7';
-             number2 += display;
-             DISPLAY_VALUE.textContent = number2; 
-         } else {
-            display = 'ERROR';
-            DISPLAY_VALUE.textContent = display;
-         }
+    numberKey(7)
         });
 
 const EIGHT = document.querySelector('#eight')
 EIGHT.addEventListener("click", () => {
-    if (!operator) {
-        display = '8';
-        number1 += display
-        DISPLAY_VALUE.textContent = number1;
-         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-             display = '8';
-             number2 += display;
-             DISPLAY_VALUE.textContent = number2; 
-         } else {
-            display = 'ERROR';
-            DISPLAY_VALUE.textContent = display;
-         }
+    numberKey(8)
         });
 
 const NINE = document.querySelector('#nine')
 NINE.addEventListener("click", () => {
-    if (!operator) {
-        display = '9';
-        number1 += display
-        DISPLAY_VALUE.textContent = number1;
-         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-             display = '9';
-             number2 += display;
-             DISPLAY_VALUE.textContent = number2; 
-         } else {
-            display = 'ERROR';
-            DISPLAY_VALUE.textContent = display;
-         }
+    numberKey(9)
         });
+
 const ZERO = document.querySelector('#zero')
 ZERO.addEventListener("click", () => {
     if (!operator) {
         display = '0';
         number1 += display
         DISPLAY_VALUE.textContent = number1;
-         } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
+    } else if (number1 != false && number2 != false && operator != false) {
+        let sum = operate(number1, operator, number2);
+        display = '';
+        number1 = sum;
+        number2 = '';
+        display = num;
+        number2 = display;
+        DISPLAY_VALUE.textContent = number2;
+    } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
              display = '0';
              number2 += display;
              DISPLAY_VALUE.textContent = number2; 
-         } else {
+    } else {
             display = 'ERROR';
             DISPLAY_VALUE.textContent = display;
-         }
+    }
         });
 
 const ADD = document.querySelector('#add')
