@@ -31,6 +31,7 @@ let number1 = ''
 let number2 = ''
 let operator = ''
 let calc = 0
+let continueNumber = false
 
 // define the main function for the calculator
 function operate(arg1, operation, arg2) {
@@ -61,12 +62,17 @@ function numberKey (num) {if (!operator) {
     display = num;
     number1 += display
     DISPLAY_VALUE.textContent = number1;
+    } else if (continueNumber === true) {
+        display = num;
+        number2 += num;
+        DISPLAY_VALUE.textContent = number2;
     } else if (number1 != false && number2 != false && operator != false) {
-        let sum = operate(number1, operator, number2);
-        number1 = sum;
+        // let sum = operate(number1, operator, number2);
+        // // number1 = sum;
         display = num;
         number2 += display
         DISPLAY_VALUE.textContent = number2;
+        let continueNumber = true;
     } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
          display = num;
          number2 += display;
@@ -158,9 +164,18 @@ ZERO.addEventListener("click", () => {
 
 const ADD = document.querySelector('#add')
 ADD.addEventListener("click", () => {
+    if (number1 !== '' && number2 !== '') {
+        display = '+'
+        operator = '+'
+        let sum = operate(number1, operator, number2);
+        number1 = sum;
+        number2 = ''
+        DISPLAY_VALUE.textContent = number1;
+    } else {
     display = '+';
     DISPLAY_VALUE.textContent = display;
     operator = '+';
+    }
 });
 
 const SUBTRACT = document.querySelector('#subtract')
@@ -196,7 +211,8 @@ CLEAR.addEventListener("click", () => {
     DISPLAY_VALUE.textContent = display;
     number1 = '';
     number2 = '';
-    calc = '';
+    operator = '';
+    calc = 0;
 
 });
 
@@ -222,6 +238,6 @@ EQUALS.addEventListener("click", () => {
          number1 = ''
          number2 = ''
          operator = ''
-         calc = ''
+         calc = 0
         //  Make number 1 === calc after the equals button is pressed if you want continuous function
         });
