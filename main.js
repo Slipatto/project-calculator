@@ -84,6 +84,21 @@ function numberKey (num) {if (!operator) {
     
 }
 
+function operation (sign) {
+    if (number1 !== '' && number2 !== '') {
+        display = sign
+        operator = sign
+        let sum = operate(number1, operator, number2);
+        number1 = sum;
+        number2 = ''
+        DISPLAY_VALUE.textContent = number1;
+    } else {
+    display = sign;
+    DISPLAY_VALUE.textContent = display;
+    operator = sign;
+    }
+}
+
 // Create display values
 // Create Variables to reference html elements
 
@@ -139,65 +154,56 @@ NINE.addEventListener("click", () => {
         });
 
 const ZERO = document.querySelector('#zero')
-ZERO.addEventListener("click", () => {
-    if (!operator) {
-        display = '0';
-        number1 += display
-        DISPLAY_VALUE.textContent = number1;
-    } else if (number1 != false && number2 != false && operator != false) {
-        let sum = operate(number1, operator, number2);
-        display = '';
-        number1 = sum;
-        number2 = '';
-        display = num;
-        number2 = display;
-        DISPLAY_VALUE.textContent = number2;
-    } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
-             display = '0';
-             number2 += display;
-             DISPLAY_VALUE.textContent = number2; 
-    } else {
-            display = 'ERROR';
-            DISPLAY_VALUE.textContent = display;
-    }
+ZERO.addEventListener("click", () => { numberKey(0)
+    // if (!operator) {
+    //     display = '0';
+    //     number1 += display
+    //     DISPLAY_VALUE.textContent = number1;
+    // } else if (number1 != false && number2 != false && operator != false) {
+    //     let sum = operate(number1, operator, number2);
+    //     display = '';
+    //     number1 = sum;
+    //     number2 = '';
+    //     display = num;
+    //     number2 = display;
+    //     DISPLAY_VALUE.textContent = number2;
+    // } else if (operator === '+' || operator === '-' || operator === 'x' || operator === '÷') {
+    //          display = '0';
+    //          number2 += display;
+    //          DISPLAY_VALUE.textContent = number2; 
+    // } else {
+    //         display = 'ERROR';
+    //         DISPLAY_VALUE.textContent = display;
+    // }
         });
 
 const ADD = document.querySelector('#add')
-ADD.addEventListener("click", () => {
-    if (number1 !== '' && number2 !== '') {
-        display = '+'
-        operator = '+'
-        let sum = operate(number1, operator, number2);
-        number1 = sum;
-        number2 = ''
-        DISPLAY_VALUE.textContent = number1;
-    } else {
-    display = '+';
-    DISPLAY_VALUE.textContent = display;
-    operator = '+';
-    }
-});
+ADD.addEventListener("click", () => { operation('+') });
+    // Use this code on the other operators, check zero button for bugs
+    // if (number1 !== '' && number2 !== '') {
+    //     display = '+'
+    //     operator = '+'
+    //     let sum = operate(number1, operator, number2);
+    //     number1 = sum;
+    //     number2 = ''
+    //     DISPLAY_VALUE.textContent = number1;
+    // } else {
+    // display = '+';
+    // DISPLAY_VALUE.textContent = display;
+    // operator = '+';
+    // }
 
 const SUBTRACT = document.querySelector('#subtract')
-SUBTRACT.addEventListener("click", () => {
-    display = '-';
-    DISPLAY_VALUE.textContent = display;
-    operator = '-';
-});
+SUBTRACT.addEventListener("click", () => { operation('-') });
+
 
 const MULTIPLY = document.querySelector('#multiply')
-MULTIPLY.addEventListener("click", () => {
-    display = 'x';
-    DISPLAY_VALUE.textContent = display;
-    operator = 'x';
-});
+MULTIPLY.addEventListener("click", () => { operation('x')});
+
 
 const DIVIDE = document.querySelector('#divide')
-DIVIDE.addEventListener("click", () => {
-    display = '÷';
-    DISPLAY_VALUE.textContent = display;
-    operator = '÷';
-});
+DIVIDE.addEventListener("click", () => { operation('÷')});
+
 
 const DECIMAL = document.querySelector('#decimal')
 DECIMAL.addEventListener("click", () => {
@@ -218,7 +224,7 @@ CLEAR.addEventListener("click", () => {
 
 const EQUALS = document.querySelector('#equals')
 EQUALS.addEventListener("click", () => {
-    if (!display) {
+    if (display != true && display !=0) {
         display = 'ERROR';
         DISPLAY_VALUE.textContent = display;
          } else if (display === '+' || display === '-' || display === 'x' || display === '÷') {
