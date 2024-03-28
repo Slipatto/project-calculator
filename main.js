@@ -86,11 +86,11 @@ function numberKey (num) {if (!operator) {
 
 function operation (sign) {
     if (number1 !== '' && number2 !== '') {
-        display = sign
-        operator = sign
         let sum = operate(number1, operator, number2);
         number1 = sum;
         number2 = ''
+        display = sign
+        operator = sign
         DISPLAY_VALUE.textContent = number1;
     } else {
     display = sign;
@@ -224,7 +224,7 @@ CLEAR.addEventListener("click", () => {
 
 const EQUALS = document.querySelector('#equals')
 EQUALS.addEventListener("click", () => {
-    if (display != true && display !=0) {
+    if (isNaN(display)) {
         display = 'ERROR';
         DISPLAY_VALUE.textContent = display;
          } else if (display === '+' || display === '-' || display === 'x' || display === '÷') {
@@ -245,5 +245,4 @@ EQUALS.addEventListener("click", () => {
          number2 = ''
          operator = ''
          calc = 0
-        //  Make number 1 === calc after the equals button is pressed if you want continuous function
         });
